@@ -2,7 +2,7 @@ html {
   box-sizing: border-box;
 
   --col-dark: #070600;
-  --col-light: #f7f7f7;
+  --col-light: #f7f7ff;
 }
 
 *,
@@ -140,4 +140,56 @@ body {
 
 .footer__logo {
   width: 20px;
+}
+
+/* Modal */
+.modal {
+  padding: 30px;
+  text-align: center;
+  border: 0;
+  border-radius: 9px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal::backdrop {
+  background: #070600;
+  opacity: 0.2;
+}
+
+.modal form {
+  align-self: stretch;
+}
+
+.modal__title {
+  color: var(--col-dark);
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+
+.modal__result {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.modal__btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+
+  border: 0;
+  outline: 0;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 9px;
+
+  font-family: inherit;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.modal__btn:hover {
+  background: rgba(0, 0, 0, 0.3);
 }
