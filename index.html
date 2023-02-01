@@ -4,9 +4,73 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Odin | Rock, paper scissors</title>
   </head>
-  <body>
-    <script src="script.js"></script>
+  <body class="page">
+    <header class="header">
+      <div class="container header__container">
+        <h1 class="title header__title">Rock, paper, scissors</h1>
+      </div>
+    </header>
+    <main class="game">
+      <div class="container game__container">
+        <h2 class="heading game__heading" id="js-roundResult">
+          Choose your weapon
+        </h2>
+        <div class="game__score">
+          <figure class="score-box">
+            <p class="score__title">You</p>
+            <h3 class="score__value" id="js-playerScore">0</h3>
+          </figure>
+          <figure class="score-box">
+            <p class="score__title">Computer</p>
+            <h3 class="score__value" id="js-computerScore">0</h3>
+          </figure>
+        </div>
+        <div class="game__controls">
+          <button class="control" id="js-rockBtn">
+            Rock
+            <img class="control__image" src="image/rock.png" alt="rock" />
+          </button>
+          <button class="control" id="js-paperBtn">
+            Paper
+            <img class="control__image" src="image/paper.png" alt="paper" />
+          </button>
+          <button class="control" id="js-scissorsBtn">
+            Scissors
+            <img
+              class="control__image"
+              src="image/scissors.png"
+              alt="scissors"
+            />
+          </button>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container footer__container">
+        <p class="footer__text">
+          2023. All rights reserved
+          <a
+            href="https://github.com/clairvynce"
+            class="footer__link"
+            target="_blank"
+          >
+            <img
+              src="image/github-mark.svg"
+              alt="GitHub logo"
+              class="footer__logo"
+            />
+            @clairvynce
+          </a>
+        </p>
+      </div>
+    </footer>
+    <!-- <script src="js/script.js"></script> -->
   </body>
 </html>
