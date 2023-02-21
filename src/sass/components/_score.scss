@@ -1,0 +1,25 @@
+$score-title-size: map-get(
+  $map: $font-size,
+  $key: "small",
+);
+$score-value-size: map-get(
+  $map: $font-size,
+  $key: "medium",
+);
+
+.score {
+  &-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__title {
+    font-size: $score-title-size;
+  }
+
+  &__value {
+    font-size: $score-value-size;
+  }
+}

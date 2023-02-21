@@ -4,9 +4,74 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/sass/style.css" />
     <title>Odin | Rock, paper scissors</title>
   </head>
-  <body>
-    <script src="script.js"></script>
+  <body class="page">
+    <header class="header">
+      <div class="container header__container">
+        <h1 class="header__heading heading_primary">Rock, paper, scissors</h1>
+      </div>
+    </header>
+    <main class="app">
+      <div class="container app__container">
+        <h2 class="app__heading">Choose your weapon</h2>
+        <div class="app__score">
+          <figure class="score-box">
+            <p class="score__title">You</p>
+            <h3 class="score__value score__value_player">0</h3>
+          </figure>
+          <figure class="score-box">
+            <p class="score__title">Computer</p>
+            <h3 class="score__value score__value_computer">0</h3>
+          </figure>
+        </div>
+        <div class="app__controls">
+          <button class="control" data-option="rock">
+            Rock
+            <img class="control__image" src="src/image/rock.png" alt="rock" />
+          </button>
+          <button class="control" data-option="paper">
+            Paper
+            <img class="control__image" src="src/image/paper.png" alt="paper" />
+          </button>
+          <button class="control" data-option="scissors">
+            Scissors
+            <img
+              class="control__image"
+              src="src/image/scissors.png"
+              alt="scissors"
+            />
+          </button>
+        </div>
+      </div>
+    </main>
+    <div class="modal hidden">
+      <h3 class="modal__result">You lost 😢</h3>
+      <p class="modal__text">Want to try again?</p>
+      <button class="modal__btn">Restart</button>
+    </div>
+    <div class="modal__overlay hidden"></div>
+    <footer class="footer">
+      <div class="container footer__container">
+        <p class="footer__text">
+          <span class="footer__year">2023.</span>
+          All rights reserved
+        </p>
+        <a href="https://github.com/clairvynce" class="footer__link">
+          <img
+            src="src/image/github-mark.svg"
+            alt="Github logo"
+            class="footer__logo"
+          />
+          @clairvynce
+        </a>
+      </div>
+    </footer>
+    <script src="src/js/script.js"></script>
   </body>
 </html>

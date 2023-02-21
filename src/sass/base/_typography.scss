@@ -1,0 +1,7 @@
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.heading_primary {
+  font-size: map-get($map: $font-size, $key: "extra-large");
+}

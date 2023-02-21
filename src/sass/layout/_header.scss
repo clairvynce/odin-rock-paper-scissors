@@ -1,0 +1,22 @@
+$header-padding: 30px 0;
+$header-bg: map-get(
+  $map: $color,
+  $key: "dark",
+);
+$header-text-col: map-get(
+  $map: $color,
+  $key: "light",
+);
+
+.header {
+  padding: $header-padding;
+  background-color: $header-bg;
+
+  &__container {
+    text-align: center;
+  }
+
+  &__heading {
+    color: $header-text-col;
+  }
+}

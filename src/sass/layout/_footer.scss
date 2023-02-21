@@ -1,0 +1,48 @@
+$footer-padding: 15px 0;
+$footer-bg: map-get(
+  $map: $color,
+  $key: "light",
+);
+$footer-text-size: map-get(
+  $map: $font-size,
+  $key: "extra-small",
+);
+$footer-text-col: map-get(
+  $map: $color,
+  $key: "dark",
+);
+$footer-logo-width: 20px;
+
+.footer {
+  padding: $footer-padding;
+  background-color: $footer-bg;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__text {
+    color: $footer-text-col;
+    font-size: $footer-text-size;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__logo {
+    width: $footer-logo-width;
+  }
+}
