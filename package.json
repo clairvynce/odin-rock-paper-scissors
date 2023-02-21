@@ -4,7 +4,7 @@
   "description": "A simple Rock, paper, scissors game created with HTML, CSS and JavaScript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "style": "sass --watch src/sass/main.scss src/sass/style.css"
   },
   "repository": {
     "type": "git",

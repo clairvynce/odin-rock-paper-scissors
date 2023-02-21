@@ -8,40 +8,38 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="src/sass/style.css" />
     <title>Odin | Rock, paper scissors</title>
   </head>
   <body class="page">
     <header class="header">
       <div class="container header__container">
-        <h1 class="title header__title">Rock, paper, scissors</h1>
+        <h1 class="header__heading heading_primary">Rock, paper, scissors</h1>
       </div>
     </header>
-    <main class="game">
-      <div class="container game__container">
-        <h2 class="heading game__heading" id="js-roundResult">
-          Choose your weapon
-        </h2>
-        <div class="game__score">
+    <main class="app">
+      <div class="container app__container">
+        <h2 class="app__heading">Choose your weapon</h2>
+        <div class="app__score">
           <figure class="score-box">
             <p class="score__title">You</p>
-            <h3 class="score__value" id="js-playerScore">0</h3>
+            <h3 class="score__value score__value_player">0</h3>
           </figure>
           <figure class="score-box">
             <p class="score__title">Computer</p>
-            <h3 class="score__value" id="js-computerScore">0</h3>
+            <h3 class="score__value score__value_computer">0</h3>
           </figure>
         </div>
-        <div class="game__controls">
-          <button class="control" id="js-rockBtn">
+        <div class="app__controls">
+          <button class="control" data-option="rock">
             Rock
             <img class="control__image" src="src/image/rock.png" alt="rock" />
           </button>
-          <button class="control" id="js-paperBtn">
+          <button class="control" data-option="paper">
             Paper
             <img class="control__image" src="src/image/paper.png" alt="paper" />
           </button>
-          <button class="control" id="js-scissorsBtn">
+          <button class="control" data-option="scissors">
             Scissors
             <img
               class="control__image"
@@ -52,30 +50,26 @@
         </div>
       </div>
     </main>
-    <dialog class="modal" id="js-modal">
-      <h2 class="modal__title">The game is over</h2>
-      <p class="modal__result" id="js-gameResult"></p>
-      <form action="dialog">
-        <button class="modal__btn" id="js-restart">Restart</button>
-      </form>
-    </dialog>
+    <div class="modal hidden">
+      <h3 class="modal__result">You lost 😢</h3>
+      <p class="modal__text">Want to try again?</p>
+      <button class="modal__btn">Restart</button>
+    </div>
+    <div class="modal__overlay hidden"></div>
     <footer class="footer">
       <div class="container footer__container">
         <p class="footer__text">
-          2023. All rights reserved
-          <a
-            href="https://github.com/clairvynce"
-            class="footer__link"
-            target="_blank"
-          >
-            <img
-              src="src/image/github-mark.svg"
-              alt="GitHub logo"
-              class="footer__logo"
-            />
-            @clairvynce
-          </a>
+          <span class="footer__year">2023.</span>
+          All rights reserved
         </p>
+        <a href="https://github.com/clairvynce" class="footer__link">
+          <img
+            src="src/image/github-mark.svg"
+            alt="Github logo"
+            class="footer__logo"
+          />
+          @clairvynce
+        </a>
       </div>
     </footer>
     <script src="src/js/script.js"></script>
