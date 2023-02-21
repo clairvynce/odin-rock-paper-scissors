@@ -3,33 +3,49 @@
 let playerScore = 0;
 let computerScore = 0;
 
-const playerScoreUI = document.querySelector("#js-playerScore");
-const computerScoreUI = document.querySelector("#js-computerScore");
-const roundResult = document.querySelector("#js-roundResult");
-const controlButtons = document.querySelectorAll(".control");
+const roundResultUI = document.querySelector(".app__heading");
+const playerScoreUI = document.querySelector(".score__value_player");
+const computerScoreUI = document.querySelector(".score__value_computer");
 
-function getComputerChoice() {
+const getComputerChoice = () => {
   const variants = ["rock", "paper", "scissors"];
   return variants[Math.floor(Math.random() * variants.length)];
-}
+};
 
-controlButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const computerChoice = getComputerChoice();
+const getPlayerChoice = (choice) => {
+  if (choice.dataset.option === "rock") {
+    return "rock";
+  } else if (choice.dataset.option === "paper") {
+    return "paper";
+  } else if (choice.dataset.option === "scissors") {
+    return "scissors";
+  }
+};
 
-    if (button.id.includes("js-rockBtn")) {
-      playRound("rock", computerChoice);
-    } else if (button.id.includes("js-paperBtn")) {
-      playRound("paper", computerChoice);
-    } else {
-      playRound("scissors", computerChoice);
-    }
-  });
-});
+const updateRoundResult = (roundResult) => {
+  switch (roundResult) {
+    case "player":
+      roundResultUI.textContent = "🎉 You win!";
+      playerScore++;
+      playerScoreUI.textContent = playerScore;
+      break;
+    case "computer":
+      roundResultUI.textContent = "🤖 Computer wins!";
+      computerScore++;
+      computerScoreUI.textContent = computerScore;
+      break;
+    case "tie":
+      roundResultUI.textContent = "🤝 It's a tie!";
+      return;
+  }
 
-function playRound(playerChoice, computerChoice) {
+  if (playerScore === 5 || computerScore === 5) {
+    popFinalModal(playerScore > computerScore ? "player" : "computer");
+  }
+};
+
+const getRoundWinner = (playerChoice, computerChoice) => {
   let roundWinner;
-
   if (playerChoice === "rock" && computerChoice === "scissors") {
     roundWinner = "player";
   } else if (playerChoice === "paper" && computerChoice === "rock") {
@@ -41,50 +57,57 @@ function playRound(playerChoice, computerChoice) {
   } else {
     roundWinner = "computer";
   }
+  updateRoundResult(roundWinner);
+};
 
-  updateScore(roundWinner);
-}
+const popFinalModal = (gameWinner) => {
+  const modalWindow = document.querySelector(".modal");
+  const modalResult = document.querySelector(".modal__result");
+  const modalOverlay = document.querySelector(".modal__overlay");
+  const modalBtn = document.querySelector(".modal__btn");
 
-function updateScore(roundWinner) {
-  switch (roundWinner) {
-    case "player":
-      playerScore++;
-      playerScoreUI.textContent = `${playerScore}`;
-      roundResult.textContent = `You win!`;
-      break;
+  modalWindow.classList.remove("hidden");
+  modalOverlay.classList.remove("hidden");
 
-    case "computer":
-      computerScore++;
-      computerScoreUI.textContent = `${computerScore}`;
-      roundResult.textContent = `Computer wins!`;
-      break;
+  modalResult.style.color = `${
+    gameWinner === "player" ? "#47682c" : "#ef3054"
+  }`;
+  modalResult.textContent = `${
+    gameWinner === "player" ? "You win 🎉" : "You lost 😢"
+  }`;
 
-    case "tie":
-      roundResult.textContent = `It's a tie!`;
-      break;
-  }
-
-  if (playerScore === 5 || computerScore === 5) popModal();
-}
-
-function popModal() {
-  const modal = document.querySelector("#js-modal");
-  const gameResult = document.querySelector("#js-gameResult");
-  const restartBtn = document.querySelector("#js-restart");
-
-  modal.showModal();
-
-  gameResult.style.color = playerScore > computerScore ? "#47682c" : "#ef3054";
-  gameResult.textContent =
-    playerScore > computerScore ? `You win!` : `You lose!`;
-
-  restartBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-    roundResult.textContent = "Choose your weapon";
-    playerScore = 0;
-    playerScoreUI.textContent = `${playerScore}`;
-    computerScore = 0;
-    computerScoreUI.textContent = `${computerScore}`;
-    modal.close();
+  modalBtn.addEventListener("click", () => {
+    restartGame();
+    closeModal();
   });
-}
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      restartGame();
+      closeModal();
+    }
+  });
+};
+
+const restartGame = () => {
+  playerScore = 0;
+  computerScore = 0;
+
+  roundResultUI.textContent = "Choose your weapon";
+  playerScoreUI.textContent = 0;
+  computerScoreUI.textContent = 0;
+};
+
+const closeModal = () => {
+  const modalWindow = document.querySelector(".modal");
+  const modalOverlay = document.querySelector(".modal__overlay");
+
+  modalWindow.classList.add("hidden");
+  modalOverlay.classList.add("hidden");
+};
+
+const optionButtons = document.querySelectorAll(".control");
+optionButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    getRoundWinner(getPlayerChoice(button), getComputerChoice());
+  });
+});
