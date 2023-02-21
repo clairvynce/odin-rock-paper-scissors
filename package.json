@@ -1,0 +1,22 @@
+{
+  "name": "odin-rock-paper-scissors",
+  "version": "1.0.0",
+  "description": "A simple Rock, paper, scissors game created with HTML, CSS and JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "style": "sass --watch src/sass/main.scss src/sass/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clairvynce/odin-rock-paper-scissors.git"
+  },
+  "author": "clairvynce",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clairvynce/odin-rock-paper-scissors/issues"
+  },
+  "homepage": "https://github.com/clairvynce/odin-rock-paper-scissors#readme",
+  "devDependencies": {
+    "sass": "^1.58.3"
+  }
+}

@@ -1,0 +1,90 @@
+$modal-padding: 30px;
+$modal-width: 300px;
+$modal-border-radius: map-get(
+  $map: $border-radius,
+  $key: "regular",
+);
+$modal-border: 0;
+$modal-primary-text: map-get(
+  $map: $font-size,
+  $key: "medium",
+);
+$modal-secondary-text: map-get(
+  $map: $font-size,
+  $key: "small",
+);
+$modal-bg: map-get(
+  $map: $color,
+  $key: "light",
+);
+$modal-overlay-bg: rgba(0, 0, 0, 0.6);
+
+$modal-btn-width: 100%;
+$modal-btn-padding: 10px;
+$modal-btn-border: 0;
+$modal-btn-outline: 0;
+$modal-btn-border-radius: map-get(
+  $map: $border-radius,
+  $key: "regular",
+);
+$modal-btn-bg: rgba(0, 0, 0, 0.1);
+$modal-btn-bg-hover: rgba(0, 0, 0, 0.3);
+$modal-btn-text-size: map-get(
+  $map: $font-size,
+  $key: "small",
+);
+$modal-btn-animation: all 0.3s;
+
+.modal {
+  padding: $modal-padding;
+  width: $modal-width;
+  background-color: $modal-bg;
+  text-align: center;
+  border: $modal-border;
+  border-radius: $modal-border-radius;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &__result {
+    font-size: $modal-primary-text;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  &__text {
+    font-size: $modal-secondary-text;
+    margin-bottom: 20px;
+  }
+
+  &__btn {
+    display: block;
+    width: $modal-btn-width;
+    padding: $modal-btn-padding;
+    border: $modal-btn-border;
+    outline: $modal-btn-outline;
+    border-radius: $modal-btn-border-radius;
+    font-family: inherit;
+    font-size: $modal-btn-text-size;
+    background: $modal-btn-bg;
+    cursor: pointer;
+    transition: $modal-btn-animation;
+
+    &:hover {
+      background: $modal-btn-bg-hover;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+  }
+}
